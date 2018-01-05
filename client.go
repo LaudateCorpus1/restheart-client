@@ -30,8 +30,6 @@ func (client *Client) Call() error {
 	// build request URL
 	requestURL := strings.Join(
 		[]string{configuration.Endpoint, client.ObjectType, client.ObjectName}, "/")
-	//fmt.Println(requestURL)
-	//fmt.Println(client.RequestMethod)
 	httpClient := &http.Client{}
 
 	request, err := http.NewRequest(
