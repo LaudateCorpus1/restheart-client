@@ -33,7 +33,6 @@ func (configuration *Configuration) Load() error {
 	} else if envExists("RHENDPOINT") {
 		configuration.Endpoint = os.Getenv("RHENDPOINT")
 	}
-
 	return nil
 }
 

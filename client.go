@@ -31,7 +31,6 @@ func (client *Client) Call() error {
 	requestURL := strings.Join(
 		[]string{configuration.Endpoint, client.ObjectType, client.ObjectName}, "/")
 	httpClient := &http.Client{}
-
 	request, err := http.NewRequest(
 		client.RequestMethod,
 		requestURL,
@@ -46,7 +45,9 @@ func (client *Client) Call() error {
 	// config objects are readable without username and pass
 	// this may change in the future to implement token auth,
 	// so we'll leave this a bit free
-	if client.ObjectType != "config" {
+	if client.ObjectType == "config" && client.RequestMethod == "GET" {
+		// no auth required
+	} else {
 		request.SetBasicAuth(configuration.Username, configuration.Password)
 	}
 
