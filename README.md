@@ -9,7 +9,7 @@ Configuration struct provides a method to configure the Client with credentials 
 
 Import
 ```go
-import restheart "github.vianttech.com/techops/restheart-go"
+import restheart "github.com/viant/restheart-client"
 ```
 
 Client GET
@@ -71,5 +71,4 @@ if err != nil {
 
 ### TODO
 * Add better error handling for Client
-* Configuration to be read via environment variables
 * Configuration to be settable via application that implements it
